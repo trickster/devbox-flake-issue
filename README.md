@@ -1,5 +1,19 @@
 Testing nix
 
+# Branch notes
+
+- this branch correctly links when `cd emulator; nix develop` is run
+- but it gives runtime errors like
+
+```
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.33' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libstdc++.so.6)
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.32' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libstdc++.so.6)
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.36' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libstdc++.so.6)
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libstdc++.so.6)
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.35' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libgcc_s.so.1)
+emulator_main: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/libgcc_s.so.1)
+```
+
 ```
 find /nix/store/*emulator*/ -name 'emulator_main'
 ```
