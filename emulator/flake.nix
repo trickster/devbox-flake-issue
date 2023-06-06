@@ -26,27 +26,17 @@
                 sha256 = "e02e53776f36865dd581234c0c21a54add77d88fb956023aa47f99d96c0af788";
               };
               sourceRoot = ".";
+              nativeBuildInputs = [
+                pkgs.autoPatchelfHook
+              ];
+              buildInputs = [
+                # pkgs.glibc
+                pkgs.gcc-unwrapped
+              ];
               unpackPhase = ''
                 mkdir -p $out/bin
                 tar -xzf $src -C $out/bin
               '';
-              buildPhase = ":";
-              libPath = with pkgs; lib.makeLibraryPath [
-                pkgs.stdenv.cc.cc.lib # libstdc++.so.6
-              ];
-
-              postFixUp = ''
-                patchelf \
-                  --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
-                  --set-rpath "${libPath}" \
-                  $out/bin/emulator_main
-              '';
-              # postFixUp = ''
-              #   patchelf \
-              #     --set-interpreter "/opt/glibc/lib/ld-linux-x86-64.so.2" \
-              #     --set-rpath "/opt/glibc/lib" \
-              #     $out/bin/emulator_main
-              # '';
               meta = with nixpkgs.lib; {
                 homepage = "https://github.com/GoogleCloudPlatform/cloud-spanner-emulator";
                 description =

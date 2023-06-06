@@ -1,5 +1,14 @@
 Testing nix
 
+# manual 
+
+```
+LD_LIBRARY_PATH=/nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/:$LD_LIBRARY_PATH /nix/store/x33pcmpsiimxhip52mwxbb5y77dhmb21-glibc-2.37-8/lib/ld-linux-x86-64.so.2 /nix/store/k9ywsqknwpyn88idr92ppjfw1n0dkayp-spanner-emulator/bin/emulator_main --host_port localhost:1234
+
+
+LD_LIBRARY_PATH=/nix/store/7ls5xhx6kqpjgpg67kdd4pmbkhna4b6c-gcc-12.2.0-lib/lib/:$LD_LIBRARY_PATH /nix/store/x33pcmpsiimxhip52mwxbb5y77dhmb21-glibc-2.37-8/lib/ld-linux-x86-64.so.2 /nix/store/k9ywsqknwpyn88idr92ppjfw1n0dkayp-spanner-emulator/bin/gateway_main --hostname localhost --grpc_port 1234 --http_port 1235
+```
+
 # Branch notes
 
 - this branch correctly links when `cd emulator; nix develop` is run
