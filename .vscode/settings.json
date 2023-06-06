@@ -1,0 +1,3 @@
+{
+    "nix.serverPath": "/home/user/.nix-profile/bin/rnix-lsp"
+}
