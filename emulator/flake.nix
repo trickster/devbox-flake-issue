@@ -52,6 +52,8 @@
         devShells = { } // (if system == "x86_64-linux" then {
           default = pkgs.mkShell rec {
             libPath = with pkgs; lib.makeLibraryPath [
+              # pkgs.libstdcxx6
+              # pkgs.gcc6
               pkgs.stdenv.cc.cc.lib # libstdc++.so.6
             ];
             LD_LIBRARY_PATH = "${libPath}";
