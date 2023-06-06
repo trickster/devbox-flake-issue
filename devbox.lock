@@ -1,6 +1,17 @@
 {
   "lockfile_version": "1",
   "packages": {
+    "clang@latest": {
+      "last_modified": "2023-05-01T16:53:22Z",
+      "resolved": "github:NixOS/nixpkgs/8670e496ffd093b60e74e7fa53526aa5920d09eb#clang",
+      "version": "11.1.0"
+    },
+    "clang_14": {
+      "resolved": "github:NixOS/nixpkgs/f80ac848e3d6f0c12c52758c0f25c10c97ca3b62#clang_14"
+    },
+    "lld_14": {
+      "resolved": "github:NixOS/nixpkgs/f80ac848e3d6f0c12c52758c0f25c10c97ca3b62#lld_14"
+    },
     "stdenv.cc.cc.lib": {
       "resolved": "github:NixOS/nixpkgs/f80ac848e3d6f0c12c52758c0f25c10c97ca3b62#stdenv.cc.cc.lib"
     }
