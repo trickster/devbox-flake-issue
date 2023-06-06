@@ -41,6 +41,12 @@
                   --set-rpath "${libPath}" \
                   $out/bin/emulator_main
               '';
+              # postFixUp = ''
+              #   patchelf \
+              #     --set-interpreter "/opt/glibc/lib/ld-linux-x86-64.so.2" \
+              #     --set-rpath "/opt/glibc/lib" \
+              #     $out/bin/emulator_main
+              # '';
               meta = with nixpkgs.lib; {
                 homepage = "https://github.com/GoogleCloudPlatform/cloud-spanner-emulator";
                 description =
@@ -57,6 +63,7 @@
               pkgs.stdenv.cc.cc.lib # libstdc++.so.6
             ];
             LD_LIBRARY_PATH = "${libPath}";
+            # LD_LIBRARY_PATH = "/opt/glibc/lib";
             buildInputs = [
               self.packages.${system}.spanner-emulator
             ];
